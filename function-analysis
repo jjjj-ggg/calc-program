@@ -55,8 +55,9 @@ for x in range (a,b+1):
     x = x + 2*h
     fj = eval(f)
     x = int(x-h+.1)-a
-    j = (x+h)
-    q = (fj-f1[j])/(h)
+    p = (x+h)
+    fp = eval(f)
+    q = (fj-fp)/(h)
     f2.append(q)
    # print(fj,f1[x])
     
