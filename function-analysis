@@ -31,7 +31,7 @@ for x in range (a,b+1):
    x = h+x                      #redefines x as x + h to find f(x+h)
    fh= eval(f)                  #calculates f(x+h)
    x = float(x-h+.1)-a            #redefines x so that it points to the coresponding f(x) value in f1
-   p = round(((fh-f1[x])/h), 5) #rounds fprime
+   p = round(((fh-f1[x])/h), 4) #rounds fprime
    fprime.append(p)             # calculates the derivitive using the definition of a derivitive and puts in fprime
 
 
