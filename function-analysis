@@ -14,7 +14,7 @@ f = input("enter a function equal to f(x) in terms of x: ")         #user inputs
 #b = int(input("what is the upper limit of your interval?: "))      #user inputs the domain of the function
 a = 0 # lower limit
 b = 10 # upper limit
-h = 0.00001                 #defines delta x or h
+h = 0.000000001                 #defines delta x or h
 
 
 ########_finds f'
@@ -55,12 +55,23 @@ for x in range (a,b+1):
     x = x + 2*h
     fj = eval(f)
     x = int(x-h+.1)-a
-    p = (x+h)
-    fp = eval(f)
-    q = (fj-fp)/(h)
-    f2.append(q)
-   # print(fj,f1[x])
+    f2.append(fj)
     
+f5 = []                         # f(x+2h)-f(x+h)/h or f'(x+h)
+for x in range (a,b+1):   
+    x = x+h
+    fp = eval(f)
+    f5.append(fp)
+
+f6 = []
+for x in range (a,b+1):
+    q = (f2[x]-f5[x])/(h)
+    f6.append(q)
+   # print(fj,f1[x])
+
+print ("LOOKK", f6, f2)
+
+   
 f3 = []                         # f(x+h)-f(x)/h or f'(x)
 for x in range(a, b+1):
     x = x + h
@@ -76,7 +87,7 @@ for x in range(a, b+1):
    
 fdouble = []                    # actual f' 
 for x in range (a, b+1):
-    s = (q-k)/h
+    s = (f6[x]-f3[x])/h
     fdouble.append(s)
 
 print (fdouble)
