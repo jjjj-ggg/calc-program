@@ -85,17 +85,20 @@ print (fdouble)
 
 
 
-
+x = 0
+for x in range(a,b+1):
 ###extremes 
-print("absolute min: ", min(f1))
-print("absolute max: ", max(f1))
+print("absolute min: ", (x, min(f1)))
+print("absolute max: ", (x, max(f1)))
+
+
 
 """
 #####################_finds concavity using f''
 #extrema at interior pts
-if fprime.append(eval(f))==0 in list(fprime) and fdouble.append(eval(f))<0 in list(fdouble) :
+if fdouble.append(eval(f))==0 in list(fprime) and fdouble.append(eval(f))<0 in list(fdouble) :
     print("local max @")
-if fprime.append(eval(f))==0 in list(fprime) and fdouble.append(eval(f))>0 in list(fdouble) :
+if fdouble.append(eval(f))==0 in list(fprime) and fdouble.append(eval(f))>0 in list(fdouble) :
     print("local min @")
 
 
@@ -115,9 +118,8 @@ if fprime(b)<0:
 
 
 #pts of inflection:
-#if fprime2.append(Eval(f))=0 in list(fprime2) and
+if fdouble.append(eval(f))=0 in list(fdouble) and
 # +/-h are positive and negative=> POI
-
-
-
 """
+
+
