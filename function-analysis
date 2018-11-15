@@ -14,7 +14,8 @@ f = input("enter a function equal to f(x) in terms of x: ")         #user inputs
 #b = int(input("what is the upper limit of your interval?: "))      #user inputs the domain of the function
 a = 0 # lower limit
 b = 10 # upper limit
-print(list(range(a,b+1)))   #list of x-values
+fx = range(a, b+1)
+print(list(fx))   #list of x-values
 h = 0.001                 #defines delta x or h
 
 
@@ -81,12 +82,6 @@ for x in range (a, b+1):
     
 print ("f''(x) in range", a, "to", b, "equals: ") 
 print (fdouble)
-
-
-
-
-
-x = 0
 
 
 print("absolute min: ", (x, min(f1)))
