@@ -10,10 +10,9 @@ from math import sin, cos, radians
 
 #inputs
 f = input("enter a function equal to f(x) in terms of x: ")         #user inputs the funciton they want
-#a = int(input("what is the lower limit of your interval?: "))      #user inputs the domain of the function 
-#b = int(input("what is the upper limit of your interval?: "))      #user inputs the domain of the function
-a = -10 # lower limit
-b = 10 # upper limit
+a = int(input("what is the lower limit of your interval?: "))      #user inputs the domain of the function 
+b = int(input("what is the upper limit of your interval?: "))      #user inputs the domain of the function
+
 fx = range(a, b+1)
 (list(fx))   #list of x-values
 h = 0.001                 #defines delta x or h
@@ -21,8 +20,11 @@ h = 0.001                 #defines delta x or h
 
 ########_finds f'
 f1 = []                         # creates f1 which is a list that will contain y values for the function
-for x in range(a,b+1):          
-   f1.append(eval(f))           #calcuates f(x) and puts in f1
+for x in range(a,b+1):
+    hk = eval(f)
+    f1.append(hk)           #calcuates f(x) and puts in f1
+
+
 
 fprime = []                     #creates a list that will contain fprimes
 for x in range (a,b+1):         
@@ -31,7 +33,7 @@ for x in range (a,b+1):
    x = int(x-h+.1)-a            #redefines x so that it points to the coresponding f(x) value in f1
    p = round(((fh-f1[x])/h), 5) #rounds fprime
    fprime.append(p)             # calculates the derivitive using the definition of a derivitive and puts in fprime
-   
+
 
 
 #prints function outputs
