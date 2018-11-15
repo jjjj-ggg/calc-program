@@ -1,0 +1,108 @@
+"""
+NOTES:
+- to do exponents do ** not ^
+- def of a derivitive = f' = (f(x+h) - f(x))/h as h approaches 0
+- print (x, ",", eval(f)) 
+
+"""
+
+from math import sin, cos, radians
+
+#inputs
+f = input("enter a function equal to f(x) in terms of x: ")         #user inputs the funciton they want
+#a = int(input("what is the lower limit of your interval?: "))      #user inputs the domain of the function 
+#b = int(input("what is the upper limit of your interval?: "))      #user inputs the domain of the function
+a = 0 # lower limit
+b = 10 # upper limit
+h = 0.000000001                 #defines delta x or h
+
+
+########_finds f'
+f1 = []                         # creates f1 which is a list that will contain y values for the function
+for x in range(a,b+1):          
+   f1.append(eval(f))           #calcuates f(x) and puts in f1
+
+fprime = []                     #creates a list that will contain fprimes
+for x in range (a,b+1):         
+   x = h+x                      #redefines x as x + h to find f(x+h)
+   fh= eval(f)                  #calculates f(x+h)
+   x = int(x-h+.1)-a            #redefines x so that it points to the coresponding f(x) value in f1
+   p = round(((fh-f1[x])/h), 5) #rounds fprime
+   fprime.append(p)             # calculates the derivitive using the definition of a derivitive and puts in fprime
+
+
+#prints function outputs
+print ("f(x) in range", a, "to", b, "equals: ") 
+print (f1)
+
+print ("f'(x) in range", a, "to", b, "equals: ") 
+print (fprime)
+
+print("absolute min: ", min(f1))
+print("absolute max: ", max(f1))
+
+
+##############_finding f"
+f2 = []                         # f(x+2h)-f(x+h)/h or f'(x+h)
+for x in range (a,b+1):
+    x = x + 2*h
+    fj = eval(f)
+    x = int(x-h+.1)-a
+    j = x+h
+    q = (fj-f1[j])/(h)
+    f2.append(q)
+   # print(fj,f1[x])
+    
+f3 = []                         # f(x+h)-f(x)/h or f'(x)
+for x in range(a, b+1):
+    x = x + h
+    fi = eval(f)
+    x = int(x-h+.1)-a
+    k = (fi-f1[x])/h
+    #print(q)
+   # x = x+h
+   # fh = eval(f)
+   # x = int(x-h+.1)-a
+  #  u = (fh-f1[x])/h
+    f3.append(k)
+   
+fdouble = []                    # actual f' 
+for x in range (a, b+1):
+    s = (q-k)/h
+    fdouble.append(s)
+
+print (fdouble)
+print(f2)
+print(f3)
+
+"""
+#####################_finds concavity using f''
+#extrema at interior pts
+if fprime.append(eval(f))==0 in list(fprime) and fdouble.append(eval(f))<0 in list(fdouble) :
+    print("local max @")
+if fprime.append(eval(f))==0 in list(fprime) and fdouble.append(eval(f))>0 in list(fdouble) :
+    print("local min @")
+
+
+
+
+
+
+#loop and figure out how to get x-value & include where fprime=DNE 1/0
+
+#extrema at endpts
+if fprime(a)<0:
+    print ("local max @ x=", a)
+if fprime(b)>0:
+    print ("local max @ x=", a)
+if fprime(b)<0:
+    print ("local min @ x=", a)
+
+
+#pts of inflection:
+#if fprime2.append(Eval(f))=0 in list(fprime2) and
+# +/-h are positive and negative=> POI
+
+
+
+"""
