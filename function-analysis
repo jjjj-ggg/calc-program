@@ -15,7 +15,7 @@ f = input("enter a function equal to f(x) in terms of x: ")         #user inputs
 a = 0 # lower limit
 b = 10 # upper limit
 fx = range(a, b+1)
-print(list(fx))   #list of x-values
+(list(fx))   #list of x-values
 h = 0.001                 #defines delta x or h
 
 
