@@ -54,8 +54,9 @@ f2 = []                         # f(x+2h)-f(x+h)/h or f'(x+h)
 for x in range (a,b+1):
     x = x + 2*h
     fj = eval(f)
-    x = int(x-h+.1)-a
+    #x = int(x-h+.1)-a
     f2.append(fj)
+
     
 f5 = []                         # f(x+2h)-f(x+h)/h or f'(x+h)
 for x in range (a,b+1):   
@@ -69,14 +70,14 @@ for x in range (a,b+1):
     f6.append(q)
    # print(fj,f1[x])
 
-print ("LOOKK", f6, f2)
+print ("LOOKK", f6)
 
    
 f3 = []                         # f(x+h)-f(x)/h or f'(x)
 for x in range(a, b+1):
     x = x + h
     fi = eval(f)
-    x = int(x-h+.1)-a
+    #x = int(x-h+.1)-a
     k = (fi-f1[x])/h
     #print(q)
    # x = x+h
@@ -84,10 +85,11 @@ for x in range(a, b+1):
    # x = int(x-h+.1)-a
   #  u = (fh-f1[x])/h
     f3.append(k)
+print ("f3 = ", f3)
    
 fdouble = []                    # actual f' 
 for x in range (a, b+1):
-    s = (f6[x]-f3[x])/h
+    s = (f6[x]-f3[x])
     fdouble.append(s)
 
 print (fdouble)
