@@ -91,8 +91,8 @@ for x in range (a, b+1):
     fdouble.append(s)
 
 print (fdouble)
-print(f2)
-print(f3)
+#print(f2)
+#print(f3)
 
 """
 #####################_finds concavity using f''
