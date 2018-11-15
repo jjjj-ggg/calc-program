@@ -86,8 +86,8 @@ print (fdouble)
 
 
 x = 0
-for x in range(a,b+1):
-###extremes 
+
+
 print("absolute min: ", (x, min(f1)))
 print("absolute max: ", (x, max(f1)))
 
