@@ -29,6 +29,7 @@ for x in range (a,b+1):
    x = int(x-h+.1)-a            #redefines x so that it points to the coresponding f(x) value in f1
    p = round(((fh-f1[x])/h), 5) #rounds fprime
    fprime.append(p)             # calculates the derivitive using the definition of a derivitive and puts in fprime
+   
 
 
 #prints function outputs
@@ -43,13 +44,19 @@ print("absolute max: ", max(f1))
 
 
 ##############_finding f"
+fw = []
+for x in range (a,b+1):
+    x = x + h
+    fw.append(eval(f))
+
+
 f2 = []                         # f(x+2h)-f(x+h)/h or f'(x+h)
 for x in range (a,b+1):
     x = x + 2*h
     fj = eval(f)
     x = int(x-h+.1)-a
     j = x+h
-    q = (fj-f1[j])/(h)
+    q = (fj-fw[x])/(h)
     f2.append(q)
    # print(fj,f1[x])
     
