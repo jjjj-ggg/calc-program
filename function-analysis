@@ -12,7 +12,7 @@ from math import sin, cos, radians
 f = input("enter a function equal to f(x) in terms of x: ")         #user inputs the funciton they want
 #a = int(input("what is the lower limit of your interval?: "))      #user inputs the domain of the function 
 #b = int(input("what is the upper limit of your interval?: "))      #user inputs the domain of the function
-a = 0 # lower limit
+a = -10 # lower limit
 b = 10 # upper limit
 fx = range(a, b+1)
 (list(fx))   #list of x-values
@@ -35,9 +35,11 @@ for x in range (a,b+1):
 
 
 #prints function outputs
+print (" ") 
 print ("f(x) in range", a, "to", b, "equals: ") 
 print (f1)
 
+print (" ") 
 print ("f'(x) in range", a, "to", b, "equals: ") 
 print (fprime)
 
@@ -79,13 +81,16 @@ for x in range (a, b+1):
     s = round((f6[x]-f3[x])/h, 5)
     fdouble.append(s)
     
-    
+print (" ")  
 print ("f''(x) in range", a, "to", b, "equals: ") 
 print (fdouble)
 
-
+print (" ") 
 print("absolute min: ", (x, min(f1)))
 print("absolute max: ", (x, max(f1)))
+
+if fprime[] <= 0:
+    print ("fprime is decreasing")
 
 
 
@@ -117,5 +122,7 @@ if fprime(b)<0:
 if fdouble.append(eval(f))=0 in list(fdouble) and
 # +/-h are positive and negative=> POI
 """
+
+
 
 
