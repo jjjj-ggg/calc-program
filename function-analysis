@@ -5,6 +5,7 @@ NOTES:
 - print (x, ",", eval(f)) 
 
 """
+
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
 from math import sin, cos, tan, radians
 
@@ -52,12 +53,47 @@ for cc in crit:
 
 #fhhh = []
 #fxhh = []
+
+print(f1)
+
 for cc in crit:
     judy = crit.index(cc)
-    if eval(f)>0 and crit(judy+1) and judy<len(cc):
-        print("oooooooooooooo")
+    x = cc
+    jg = eval(f)
+    x = judy+1
+    # x = cc+0.1
+    jjg = eval(f)
+    if jg>jjg and judy<len(crit):
+        print("local max @", cc , "," , jg)
+    elif jg<jjg and judy<len(crit):
+        print("local min @", cc, "," , jg)
+    else:
+        print("nein")
+"""
+x = b
+clur = eval(f)
+x = b-0.1
+clurr = eval(f)
+print("r",clur)
+print ("rr", clurr)
+if clur<clurr:
+    print("local min @", b, "," , clur)
+elif clur>clurr:
+    print("local max @", b, "," , clur)
+else:
+    print("nein")  
+"""
+"""    
+    judyy = crit.index(cc+1)
+    print("judy", f1[judy])
+    print("judyy", f1[judyy])
+    if f1[judy]>f1[judyy] and judy<len(crit):
+        print("local max @ ", "(", cc , "," , eval(f), ")")
+    elif f1[judy]<f1[judyy] and judy<len(crit):
+        print("local min @ ", "(", cc , "," , eval(f), ")")
     else:
         print("nope")
+"""
 """
     x = x+100*h
     fhh = eval(f)
