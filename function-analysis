@@ -85,6 +85,8 @@ f6 = []
 for x in range (a,b+1):
     q = (f2[x]-f5[x])/(h)
     f6.append(q)
+    
+
 
 
 f3 = []                         # f(x+h)-f(x)/h or f'(x)
@@ -116,6 +118,23 @@ print (" ")
 print("absolute min: ", (x, min(f1)))
 print("absolute max: ", (x, max(f1)))
 
+
+
+
+listl = []
+for x in (a,b+1):
+    if f6[x] - h > f6[x] + h:               #f6 = f'+h,  
+        listl.append(x)
+    
+print ("!!", listl)
+  
+
+
+
+
+
+
+"""
 x=0
 #for x in [.1(j)/ 100 for j in range(a, b+1, 1)]:       get it so incriments can be decimals
 for x in range(a,b+1, 1):
@@ -124,16 +143,9 @@ for x in range(a,b+1, 1):
         slope_positive = 1
     if fh[x] - f1[x] <= 0:
         print ("the function is decreasing")
-    
-    
-
-
-
-
-
-
-"""
-
+        
+        
+        
 while fprime[x] in range (a,b+1) <= 0:
     print ("for x in range ", x, "f(x) is decreasing")
     
