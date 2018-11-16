@@ -47,6 +47,9 @@ for ppp in fprime:
         crit.append(x)
 crit.append(b)          #adds b to critical values
 print("critical x-values",crit)
+for cc in crit:
+    print("(", cc , "," , eval(f), ")")
+
 
 
 
@@ -107,8 +110,6 @@ print (" ")
 print ("f''(x) in range", a, "to", b, "equals: ") 
 print (fdouble)
 print("don")
-
-
 
 print (" ") 
 
