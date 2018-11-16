@@ -6,16 +6,20 @@ NOTES:
 
 """
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
-from math import sin, cos, radians
+from math import sin, cos, tan, radians
 
 #inputs
 f = input("enter a function equal to f(x) in terms of x: ")         #user inputs the funciton they want
-a = int(input("what is the lower limit of your interval?: "))      #user inputs the domain of the function 
-b = int(input("what is the upper limit of your interval?: "))      #user inputs the domain of the function
+#a = int(input("what is the lower limit of your interval?: "))      #user inputs the domain of the function 
+#b = int(input("what is the upper limit of your interval?: "))      #user inputs the domain of the function
+a = -5
+b = 5
+rangee = list(range(a,b+1))
+
 
 fx = range(a, b+1)
 (list(fx))   #list of x-values
-h = 0.0001                 #defines delta x or h
+h = 0.000001                 #defines delta x or h
 
 
 ########_finds f'
@@ -26,13 +30,24 @@ for x in range(a,b+1):
 
 
 
-fprime = []                     #creates a list that will contain fprimes
+fprime = []     #creates a list that will contain fprimes
+crit = [a]
 for x in range (a,b+1):         
    x = h+x                      #redefines x as x + h to find f(x+h)
    fh= eval(f)                  #calculates f(x+h)
    x = float(x-h+.1)-a            #redefines x so that it points to the coresponding f(x) value in f1
    p = round(((fh-f1[x])/h), 4) #rounds fprime
    fprime.append(p)             # calculates the derivitive using the definition of a derivitive and puts in fprime
+print("here",fprime)
+   
+
+for ppp in fprime:
+    pos = fprime.index(ppp)         # position of ppp in fprime
+    if ppp>= -0.05 and ppp<=0.05:
+        x = rangee[pos]
+        crit.append(x)
+crit.append(b)          #adds b to critical values
+print("critical x-values",crit)
 
 
 
@@ -56,42 +71,87 @@ for x in range (a,b+1):
     fj = eval(f)
     f2.append(fj)
 
+
 f5 = []                         # f(x+2h)-f(x+h)/h or f'(x+h)
 for x in range (a,b+1):   
     x = x+h
     fp = eval(f)
     f5.append(fp)
 
+
 f6 = []
 for x in range (a,b+1):
     q = (f2[x]-f5[x])/(h)
     f6.append(q)
 
+
 f3 = []                         # f(x+h)-f(x)/h or f'(x)
 for x in range(a, b+1):
     x = x + h
     fi = eval(f)
-    k = (fi-f1[x])/h
-    f3.append(k)
+    f3.append(fi)
+    
+f4 = []                         # f(x+h)-f(x)/h or f'(x)
+for x in range(a, b+1):  
+    ae = (f3[x]-f1[x])/h
+    f4.append(ae)
+    
 
 fdouble = []                    # actual f' 
-for x in range (a, b+1):
-    s = round((f6[x]-f3[x])/h, 4)
+
+for x in range (a-1, b):
+    s = round((f6[x]-f4[x])/h, 3)
     fdouble.append(s)
-    
+
+
 print (" ")  
 print ("f''(x) in range", a, "to", b, "equals: ") 
 print (fdouble)
+print("don")
+
+
 
 print (" ") 
+
 print("absolute min: ", (x, min(f1)))
 print("absolute max: ", (x, max(f1)))
 
-if fprime[] <= 0:
-    print ("fprime is decreasing") 
+x=0
+#for x in [.1(j)/ 100 for j in range(a, b+1, 1)]:       get it so incriments can be decimals
+for x in range(a,b+1, 1):
+    if fh[x] - f1[x] >= 0:
+        print ("the function is increasing")
+        slope_positive = 1
+    if fh[x] - f1[x] <= 0:
+        print ("the function is decreasing")
+    
+    
 
-if fprime[] >= 0:
-    print ("fprime is increasing") 
+
+
+
+
+
+"""
+
+while fprime[x] in range (a,b+1) <= 0:
+    print ("for x in range ", x, "f(x) is decreasing")
+    
+    
+if f1[x] <= 0:
+    print ("f(x) is decreasing") 
+
+
+if f1[x] >= 0:
+    print ("f(x) is increasing") 
+
+if fprime[x] <= 0:
+    print ("f(x) is concave down") 
+
+if fprime[x] >= 0:
+    print ("f(x) is concave up") 
+"""
+
 
 
 
@@ -124,35 +184,7 @@ if fdouble.append(eval(f))=0 in list(fdouble) and
 # +/-h are positive and negative=> POI
 """
 
-"""
-# colors
-red = Color(0xff0000, 1.0)
-blue = Color(0x0000ff, 1.0)
-purple = Color(0x800080, 1.0)
-black = Color(0x000000, 1.0)
-# thin black line
-thinline = LineStyle(1, black)
 
-#circles
-circle_blue = CircleAsset (10, thinline, blue)
-circle_red = CircleAsset (10, thinline, red)
-circle_purple = CircleAsset (10, thinline, purple)
-
-#range definition
-x = range(0, 370, 10) 
-
-
-sprites = [Sprite (circle_blue, (anx,(100+100*sin(radians(anx))))) for anx in x]
-
-sprites = [Sprite (circle_blue, (anx,(fprime[x]))) for anx in x]
-
-sprites = [Sprite (circle_red, (anx,(100+100*cos(radians(anx))))) for anx in x]
-sprites = [Sprite (circle_purple, (100+100*cos(radians(anx)),400+100*sin(radians(anx)))) for anx in x]
-
-myapp = App()
-myapp.run()
-
-"""
 
 
 
