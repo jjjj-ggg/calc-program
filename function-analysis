@@ -54,7 +54,6 @@ for cc in crit:
 #fhhh = []
 #fxhh = []
 
-print(f1)
 
 for cc in crit:
     judy = crit.index(cc)
