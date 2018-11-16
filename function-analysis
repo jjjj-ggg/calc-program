@@ -55,7 +55,7 @@ for cc in crit:
 #fxhh = []
 
 
-for cc in crit:
+for cc in crit:                 # add exceptions of x^3
     judy = crit.index(cc)
     x = cc
     jg = eval(f)
