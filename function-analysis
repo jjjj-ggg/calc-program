@@ -1,20 +1,11 @@
-"""
-NOTES:
-- to do exponents do ** not ^
-- def of a derivitive = f' = (f(x+h) - f(x))/h as h approaches 0
-- print (x, ",", eval(f)) 
-
-"""
-
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
 from math import sin, cos, tan, radians
 
 #inputs
 f = input("enter a function equal to f(x) in terms of x: ")         #user inputs the funciton they want
-#a = int(input("what is the lower limit of your interval?: "))      #user inputs the domain of the function 
-#b = int(input("what is the upper limit of your interval?: "))      #user inputs the domain of the function
-a = -5
-b = 5
+a = int(input("what is the lower limit of your interval?: "))      #user inputs the domain of the function 
+b = int(input("what is the upper limit of your interval?: "))      #user inputs the domain of the function
+print("interval: [", a, " , ", b , " ]")
 rangee = list(range(a,b+1))
 
 
@@ -37,23 +28,16 @@ for x in range (a,b+1):
    x = h+x                      #redefines x as x + h to find f(x+h)
    fh= eval(f)                  #calculates f(x+h)
    x = float(x-h+.1)-a            #redefines x so that it points to the coresponding f(x) value in f1
-   p = round(((fh-f1[x])/h), 4) #rounds fprime
+   p = round(((fh-f1[x])/h), 5) #rounds fprime
    fprime.append(p)             # calculates the derivitive using the definition of a derivitive and puts in fprime
    
-
+################ EXTREMA
 for ppp in fprime:
     pos = fprime.index(ppp)         # position of ppp in fprime
     if ppp>= -0.05 and ppp<=0.05:
         x = rangee[pos]
         crit.append(x)
 crit.append(b)          #adds b to critical values
-print("critical x-values",crit)
-for cc in crit:
-    print("(", cc , "," , eval(f), ")")
-
-#fhhh = []
-#fxhh = []
-
 
 for cc in crit:                 # add exceptions of x^3
     judy = crit.index(cc)
@@ -68,62 +52,38 @@ for cc in crit:                 # add exceptions of x^3
         print("local min @", cc, "," , jg)
     else:
         print("nein")
-"""
-x = b
-clur = eval(f)
-x = b-0.1
-clurr = eval(f)
-print("r",clur)
-print ("rr", clurr)
-if clur<clurr:
-    print("local min @", b, "," , clur)
-elif clur>clurr:
-    print("local max @", b, "," , clur)
-else:
-    print("nein")  
-"""
-"""    
-    judyy = crit.index(cc+1)
-    print("judy", f1[judy])
-    print("judyy", f1[judyy])
-    if f1[judy]>f1[judyy] and judy<len(crit):
-        print("local max @ ", "(", cc , "," , eval(f), ")")
-    elif f1[judy]<f1[judyy] and judy<len(crit):
-        print("local min @ ", "(", cc , "," , eval(f), ")")
+for cc in crit:
+    x = judy+(len(crit)-1)
+    jjjg = eval(f)
+    if jg>jjjg and judy<len(crit):
+        print("absolute max @", cc , "," , jg)
+    elif jg<jjjg and judy<len(crit):
+        print("absolute min @", cc, "," , jg)
     else:
-        print("nope")
-"""
-"""
-    x = x+100*h
-    fhh = eval(f)
-    fhhh.append(fhh)
-    print("fhh", fhh)
-    x = x
-    fxh = eval(f)
-    fxhh.append(fxh)
-    print("fxh", fxh)
-    if fhh>fxh:
-        print("local min @", "(", x , "," , eval(f), ")")
-    elif fhh<fxh:
-        print("local max @", "(", x , "," , eval(f), ")")
+        print("nein")
+""" 
+abs = [a]        
+for pop in f1:
+    pulp = f1.index(pop)         # position of ppp in fprime
+    if pop>= a and pop<=b:
+        x = rangee[pulp]
+        abs.append(x)
+abs.append(b)          #adds b to critical values
+
+for ab in abs:                 # add exceptions of x^3
+    joy = abs.index(ab)
+    x = ab
+    jg = eval(f)
+    x = joy+1
+    jjg = eval(f)
+    if jg>jjg and judy<len(crit):
+        print("absolute max @", cc , "," , jg)
+    elif jg<jjg and judy<len(crit):
+        print("absolute min @", cc, "," , jg)
     else:
-        print("no local extrema")
+        print("nein")
+
 """
-
-
-
-#prints function outputs
-print (" ") 
-print ("f(x) in range", a, "to", b, "equals: ") 
-print (f1)
-
-print (" ") 
-print ("f'(x) in range", a, "to", b, "equals: ") 
-print (fprime)
-
-
-
-
 ##############_finding f"
 
 f2 = []                         # f(x+2h)-f(x+h)/h or f'(x+h)
@@ -160,115 +120,194 @@ for x in range(a, b+1):
 
 fdouble = []                    # actual f' 
 
-for x in range (a-1, b):
-    s = round((f6[x]-f4[x])/h, 2)
+for x in range(a-1, b):
+    s = round((f6[x]-f4[x])/h, 4)
     fdouble.append(s)
-
-
-print (" ")  
-print ("f''(x) in range", a, "to", b, "equals: ") 
-print (fdouble)
-print("don")
+    
+#prints function outputs
+x= rangee
+print (" ") 
+print ("f(x): ") 
+print(x)
+print (f1)
 
 print (" ") 
+print ("f'(x): ") 
+print (x)
+print (fprime)
 
-print("absolute min: ", (f1.index(x), min(f1)))
-print("absolute max: ", (f1.index(x), max(f1)))
+print (" ") 
+print ("f''(x): ") 
+print (x)
+print (fdouble)
 
-x=0
-#for x in [.1(j)/ 100 for j in range(a, b+1, 1)]:       get it so incriments can be decimals
-for x in range(a,b+1, 1):
-    if fh[x] - f1[x] >= 0:
-        print ("the function is increasing")
-        slope_positive = 1
-    if fh[x] - f1[x] <= 0:
-        print ("the function is decreasing")
+print("")
+
+
+##print("absolute min: ", (x, min(f1)))
+##print("absolute max: ", (x, max(f1)))
+
+############################################### INCREASING/DECREASING
+### Creates function, first and second derivatives
+
+tstep = .1
+xyList0 = []
+t = a
+#create a list of xy values, each x will be tstep apart
+#f(x)
+while t<b+1:
+    x=t
+    xyList0.append((t, eval(f)))
+    t += tstep
+
+
+xyList1 = []
+t = a
+#create a list of xy values, each x will be tstep apart
+#f'(x)
+count = 0
+while t<b-tstep:
+    xyList1.append((t, (xyList0[count+1][1]-xyList0[count][1])/tstep ))
+    t += tstep
+    count += 1
+
+xyList2 = []
+t = a
+count = 0
+#create a list of xy values, each x will be tstep apart
+#f''(x)
+while t<b-2*tstep:
+    xyList2.append((round(t, 7), round((xyList1[count+1][1]-xyList1[count][1])/tstep, 7) ))
+    t += tstep
+    count +=1
+    
+
+
+################################################ 
+
+# Finds the increasing/decreasing by finding the ones that are close to zero
+fill = [] # list that will contains points
+t = a # gives starting point for x
+count = 0 # records position in current list and allows for access to  deriv
+currentN = 0 # current lowest point
+currentL = 1 # last lowest point
+diff = 0
+
+while t<b-3*tstep:
+    currentL = currentN # saves the current lowest value
+    diff = abs(xyList1[count][1]) - abs(xyList1[count-1][1]) # calculates wether or not approaching X axis
+    if abs(xyList1[count+1][1]) < abs(xyList1[count][1]): # if the next is less than the current
+        currentN = (xyList1[count+1][0], xyList1[count+1][1]) # set the current as the lowest
+
+    if currentN == currentL and diff<0:# if the saved and the new lowest are the same, and approaching Xaxis
+        fill.append((count-1, currentN[0], currentN[1])) # append value to inflection points (fill)
+    t += tstep #goes through the x values in the given range a to be in tstep steps
+    count +=1 #reffers to index placement
+    
+# Makes useful critical values
+crit = [(0, xyList0[0][0], xyList0[0][1])] #places start point as cirtical value
+for x in fill: 
+    crit.append(x) 
+crit.append((count+2, xyList0[count+2][0], xyList0[count+2][1])) #places the end point as critical value
+
+# find concave up/down
+crease = [] 
+t=0
+while t<len(crit)-1: #while t is less then the length of the list of critical values list 
+    if xyList1[crit[t][0]+b][1] < 0: #if some point between the current and the next critical values is <0
+        crease.append(str("DECREASING from [ "+str(crit[t][1])+" , "+str(crit[t+1][1])+" ]")) 
+    elif xyList1[crit[t][0]+b][1] > 0: #if some point between the current and the next critical values is >0
+        crease.append(str("INCREASING from ["+str(crit[t][1])+" , "+str(crit[t+1][1])+": ]")) 
+    t+=1 #makes t = t+1
+print(crease)
+    
+#print(xyList0)
+print()
+#print(xyList1)
+print()
+#print(xyList2)
+print()
+
+############################################### POIs/CONCAVITY
+### Creates function, first and second derivatives
+
+tstep = .01
+xyList0 = []
+t = a
+#create a list of xy values, each x will be tstep apart
+#f(x)
+while t<b+1:
+    x=t
+    xyList0.append((t, eval(f)))
+    t += tstep
+
+
+xyList1 = []
+t = a
+#create a list of xy values, each x will be tstep apart
+#f'(x)
+count = 0
+while t<b-tstep:
+    xyList1.append((t, (xyList0[count+1][1]-xyList0[count][1])/tstep ))
+    t += tstep
+    count += 1
+
+xyList2 = []
+t = a
+count = 0
+#create a list of xy values, each x will be tstep apart
+#f''(x)
+while t<b-2*tstep:
+    xyList2.append((round(t, 7), round((xyList1[count+1][1]-xyList1[count][1])/tstep, 7) ))
+    t += tstep
+    count +=1
     
     
 
+################################################
 
+# Finds the points of inflection by finding the ones that are close to zero
+flex = [] # list that will contains points
+t = a # gives starting point for x
+count = 0 # records position in current list and allows for access to second deriv
+currentN = 0 # current lowest point
+currentL = 1 # last lowest point
+diff = 0
 
+while t<b-3*tstep:
+    currentL = currentN # saves the current lowest value
+    diff = abs(xyList2[count][1]) - abs(xyList2[count-1][1]) # calculates wether or not approaching X axis
+    if abs(xyList2[count+1][1]) < abs(xyList2[count][1]): # if the next is less than the current
+        currentN = (xyList2[count+1][0], xyList2[count+1][1]) # set the current as the lowest
 
-
-
-"""
-
-while fprime[x] in range (a,b+1) <= 0:
-    print ("for x in range ", x, "f(x) is decreasing")
+    if currentN == currentL and diff<0:# if the saved and the new lowest are the same, and approaching Xaxis
+        flex.append((count-1, currentN[0], currentN[1])) # append value to inflection points (flex)
+    t += tstep #goes through the x values in the given range a to be in tstep steps
+    count +=1 #reffers to index placement
     
+# Makes useful critical values
+crit = [(0, xyList0[0][0], xyList0[0][1])] #places start point as cirtical value
+for x in flex: 
+    crit.append(x) 
+crit.append((count+2, xyList0[count+2][0], xyList0[count+2][1])) #places the end point as critical value
+
+# find concave up/down
+conch = [] 
+t=0
+while t<len(crit)-1: #while t is less then the length of the list of critical values list 
+    if xyList2[crit[t][0]+5][1] < 0: #if some point between the current and the next critical values is <0
+        conch.append(str("From "+str(crit[t][1])+" to "+str(crit[t+1][1])+": concave down")) #its concave down
+    elif xyList2[crit[t][0]+5][1] > 0: #if some point between the current and the next critical values is >0
+        conch.append(str("From "+str(crit[t][1])+" to "+str(crit[t+1][1])+": concave up")) #its concave up
+    t+=1 #makes t = t+1
+print(conch)
     
-if f1[x] <= 0:
-    print ("f(x) is decreasing") 
+#print(xyList0)
+print()
+#print(xyList1)
+print()
+#print(xyList2)
+print()
 
-
-if f1[x] >= 0:
-    print ("f(x) is increasing") 
-
-if fprime[x] <= 0:
-    print ("f(x) is concave down") 
-
-if fprime[x] >= 0:
-    print ("f(x) is concave up") 
-"""
-
-
-
-
-"""
-#####################_finds concavity using f''
-#extrema at interior pts
-if fdouble.append(eval(f))==0 in list(fprime) and fdouble.append(eval(f))<0 in list(fdouble) :
-    print("local max @")
-if fdouble.append(eval(f))==0 in list(fprime) and fdouble.append(eval(f))>0 in list(fdouble) :
-    print("local min @")
-
-
-
-
-
-
-#loop and figure out how to get x-value & include where fprime=DNE 1/0
-
-#extrema at endpts
-if fprime(a)<0:
-    print ("local max @ x=", a)
-if fprime(b)>0:
-    print ("local max @ x=", a)
-if fprime(b)<0:
-    print ("local min @ x=", a)
-
-
-#pts of inflection:
-if fdouble.append(eval(f))=0 in list(fdouble) and
-# +/-h are positive and negative=> POI
-"""
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+print("points of infelction for function f(x) in range", a, "to", b, "equal", flex)
 
