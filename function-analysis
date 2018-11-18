@@ -52,16 +52,8 @@ for cc in crit:                 # add exceptions of x^3
         print("local min @", cc, "," , jg)
     else:
         print("nein")
-for cc in crit:
-    x = judy+(len(crit)-1)
-    jjjg = eval(f)
-    if jg>jjjg and judy<len(crit):
-        print("absolute max @", cc , "," , jg)
-    elif jg<jjjg and judy<len(crit):
-        print("absolute min @", cc, "," , jg)
-    else:
-        print("nein")
-""" 
+
+
 abs = [a]        
 for pop in f1:
     pulp = f1.index(pop)         # position of ppp in fprime
@@ -70,20 +62,8 @@ for pop in f1:
         abs.append(x)
 abs.append(b)          #adds b to critical values
 
-for ab in abs:                 # add exceptions of x^3
-    joy = abs.index(ab)
-    x = ab
-    jg = eval(f)
-    x = joy+1
-    jjg = eval(f)
-    if jg>jjg and judy<len(crit):
-        print("absolute max @", cc , "," , jg)
-    elif jg<jjg and judy<len(crit):
-        print("absolute min @", cc, "," , jg)
-    else:
-        print("nein")
 
-"""
+
 ##############_finding f"
 
 f2 = []                         # f(x+2h)-f(x+h)/h or f'(x+h)
