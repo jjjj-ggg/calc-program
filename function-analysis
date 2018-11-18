@@ -44,7 +44,6 @@ for cc in crit:                 # add exceptions of x^3
     x = cc
     jg = eval(f)
     x = judy+1
-    # x = cc+0.1
     jjg = eval(f)
     if jg>jjg and judy<len(crit):
         print("local max @", cc , "," , jg)
@@ -54,6 +53,30 @@ for cc in crit:                 # add exceptions of x^3
         print("nein")
 
 
+print(max(f1))
+print(min(f1))
+"""
+for cc in crit:
+    abs = crit.index(cc)
+    x = cc
+    y = max(f10)
+    print ("HERE", y)
+"""
+"""
+    x = cc
+    jg = eval(f)
+    x = judy+(len(crit)-1)
+    jjg = eval(f)
+    if jg>jjg and judy<len(crit):
+        print("absolute max @", cc , "," , jg)
+    elif jg<jjg and judy<len(crit):
+        print("absolute min @", cc, "," , jg)
+    else:
+        print("nein")
+"""
+"""
+"""
+"""
 abs = [a]        
 for pop in f1:
     pulp = f1.index(pop)         # position of ppp in fprime
@@ -62,7 +85,7 @@ for pop in f1:
         abs.append(x)
 abs.append(b)          #adds b to critical values
 
-
+"""
 
 ##############_finding f"
 
@@ -105,27 +128,40 @@ for x in range(a-1, b):
     fdouble.append(s)
     
 #prints function outputs
-x= rangee
-print (" ") 
-print ("f(x): ") 
-print(x)
-print (f1)
 
-print (" ") 
-print ("f'(x): ") 
-print (x)
-print (fprime)
 
-print (" ") 
-print ("f''(x): ") 
-print (x)
-print (fdouble)
+print("f(x):" )
+for x in rangee:
+    x=i
+    y=eval(f)
+    print("(", x, ", " , y, ")")
+print("")
+
+print("f'(x):" )
+for x in rangee:
+    x=i+h
+    fh =eval(f)
+    x = i
+    fi = eval(f)
+    p = round(((fh-fi)/h), 5)
+    print("(", x, ", " , p, ")")
+print("")
+
+print("f''(x):" )
+for x in rangee:
+    x=i+2*h
+    fh =eval(f)
+    x = i+h
+    fl = eval(f)
+    u = round(((fh-fl)/h), 5)
+    print("(", x, ", " , u, ")")
+print("")
 
 print("")
 
 
-##print("absolute min: ", (x, min(f1)))
-##print("absolute max: ", (x, max(f1)))
+print("absolute min: ", (x, min(f1)))
+print("absolute max: ", (x, max(f1)))
 
 ############################################### INCREASING/DECREASING
 ### Creates function, first and second derivatives
