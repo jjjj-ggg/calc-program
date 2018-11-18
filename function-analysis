@@ -228,9 +228,9 @@ crease = []
 t=0
 while t<len(crit)-1: #while t is less then the length of the list of critical values list 
     if xyList1[crit[t][0]+b][1] < 0: #if some point between the current and the next critical values is <0
-        crease.append(str("DECREASING from [ "+str(crit[t][1])+" , "+str(crit[t+1][1])+" ]")) 
+        crease.append(str("DECREASING from [ "+str(crease[t][1])+" , "+str(crease[t+1][1])+" ]")) 
     elif xyList1[crit[t][0]+b][1] > 0: #if some point between the current and the next critical values is >0
-        crease.append(str("INCREASING from ["+str(crit[t][1])+" , "+str(crit[t+1][1])+": ]")) 
+        crease.append(str("INCREASING from ["+str(crease[t][1])+" , "+str(crease[t+1][1])+": ]")) 
     t+=1 #makes t = t+1
 print(crease)
     
