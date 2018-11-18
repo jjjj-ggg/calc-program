@@ -54,37 +54,7 @@ for cc in crit:                 # add exceptions of x^3
 
 print("absolute min value: ", ( min(f1)))
 print("absolute max value: ", ( max(f1)))
-"""
-for cc in crit:
-    abs = crit.index(cc)
-    x = cc
-    y = max(f10)
-    print ("HERE", y)
-"""
-"""
-    x = cc
-    jg = eval(f)
-    x = judy+(len(crit)-1)
-    jjg = eval(f)
-    if jg>jjg and judy<len(crit):
-        print("absolute max @", cc , "," , jg)
-    elif jg<jjg and judy<len(crit):
-        print("absolute min @", cc, "," , jg)
-    else:
-        print("nein")
-"""
-"""
-"""
-"""
-abs = [a]        
-for pop in f1:
-    pulp = f1.index(pop)         # position of ppp in fprime
-    if pop>= a and pop<=b:
-        x = rangee[pulp]
-        abs.append(x)
-abs.append(b)          #adds b to critical values
 
-"""
 
 ##############_finding f"
 
@@ -159,7 +129,6 @@ print("")
 print("")
 
 
-
 ############################################### INCREASING/DECREASING
 ### Creates function, first and second derivatives
 
@@ -228,9 +197,9 @@ crease = []
 t=0
 while t<len(crit)-1: #while t is less then the length of the list of critical values list 
     if xyList1[crit[t][0]+b][1] < 0: #if some point between the current and the next critical values is <0
-        crease.append(str("DECREASING from [ "+str(crease[t][1])+" , "+str(crease[t+1][1])+" ]")) 
+        crease.append(str("DECREASING from [ "+str(crit[t][1])+" , "+str(crit[t+1][1])+" ]")) 
     elif xyList1[crit[t][0]+b][1] > 0: #if some point between the current and the next critical values is >0
-        crease.append(str("INCREASING from ["+str(crease[t][1])+" , "+str(crease[t+1][1])+": ]")) 
+        crease.append(str("INCREASING from ["+str(crit[t][1])+" , "+str(crit[t+1][1])+": ]")) 
     t+=1 #makes t = t+1
 print(crease)
     
@@ -322,5 +291,4 @@ print()
 #print(xyList2)
 print()
 
-print("points of infelction for function f(x) in range", a, "to", b, "equal", flex)
-
+print("points of inflection for function f(x) in range", a, "to", b, "equal", flex)
