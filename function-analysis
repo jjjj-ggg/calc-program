@@ -52,9 +52,8 @@ for cc in crit:                 # add exceptions of x^3
     else:
         print("nein")
 
-
-print(max(f1))
-print(min(f1))
+print("absolute min value: ", ( min(f1)))
+print("absolute max value: ", ( max(f1)))
 """
 for cc in crit:
     abs = crit.index(cc)
@@ -131,14 +130,14 @@ for x in range(a-1, b):
 
 
 print("f(x):" )
-for x in rangee:
+for i in rangee:
     x=i
     y=eval(f)
     print("(", x, ", " , y, ")")
 print("")
 
 print("f'(x):" )
-for x in rangee:
+for i in rangee:
     x=i+h
     fh =eval(f)
     x = i
@@ -148,20 +147,18 @@ for x in rangee:
 print("")
 
 print("f''(x):" )
-for x in rangee:
+for i in rangee:
     x=i+2*h
-    fh =eval(f)
+    fi =eval(f)
     x = i+h
     fl = eval(f)
-    u = round(((fh-fl)/h), 5)
-    print("(", x, ", " , u, ")")
+    u = round(((fi-fl)/h), 5)
+    print("(", round(x,4), ", " , u, ")")
 print("")
 
 print("")
 
 
-print("absolute min: ", (x, min(f1)))
-print("absolute max: ", (x, max(f1)))
 
 ############################################### INCREASING/DECREASING
 ### Creates function, first and second derivatives
