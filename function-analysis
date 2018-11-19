@@ -215,14 +215,14 @@ print(max)
 
 N = [100,100]
 
-for x in Min:
+for x in Max:
     if x[1] < N[1]:
         N=x
 print()
 print("The absolute min is "+str(N)+". If your function is a basic sin or cos function, there are no absolute minimums or maximums")
 
 N = [-100, 100]
-for x in Max:
+for x in Min:
     if x[1] < N[1]:
         N=x
 print()
