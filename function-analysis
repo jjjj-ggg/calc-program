@@ -1,5 +1,5 @@
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
-from math import sin, cos, tan, radians
+from math import sin, cos, tan, radians, log, e
 
 #inputs
 f = input("enter a function equal to f(x) in terms of x: ")         #user inputs the funciton they want
