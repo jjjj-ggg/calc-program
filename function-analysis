@@ -52,6 +52,39 @@ for cc in crit:                 # add exceptions of x^3
     else:
         print("nein")
 
+### Creates function, first and second derivatives
+
+tstep = .1
+xyList0 = []
+t = a
+#create a list of xy values, each x will be tstep apart
+#f(x)
+while t<b+1:
+    x=t
+    xyList0.append((t, eval(f)))
+    t += tstep
+
+
+xyList1 = []
+t = a
+#create a list of xy values, each x will be tstep apart
+#f'(x)
+count = 0
+while t<b-tstep:
+    xyList1.append((t, (xyList0[count+1][1]-xyList0[count][1])/tstep ))
+    t += tstep
+    count += 1
+
+xyList2 = []
+t = a
+count = 0
+#create a list of xy values, each x will be tstep apart
+#f''(x)
+while t<b-2*tstep:
+    xyList2.append((round(t, 7), round((xyList1[count+1][1]-xyList1[count][1])/tstep, 7) ))
+    t += tstep
+    count +=1
+"""   
 # Finds the extrema by finding the ones that are close to zero
 flex = [] # list that will contains points
 t = a # gives starting point for x
@@ -79,6 +112,8 @@ print()
 print()
 
 print("extrema for function f(x) in range", a, "to", b, "equal", flex)
+"""
+
 print("absolute min value: ", ( min(f1)))
 print("absolute max value: ", ( max(f1)))
 
