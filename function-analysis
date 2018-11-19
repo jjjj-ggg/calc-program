@@ -52,6 +52,33 @@ for cc in crit:                 # add exceptions of x^3
     else:
         print("nein")
 
+# Finds the extrema by finding the ones that are close to zero
+flex = [] # list that will contains points
+t = a # gives starting point for x
+count = 0 # records position in current list and allows for access to  deriv
+currentN = 0 # current lowest point
+currentL = 1 # last lowest point
+diff = 0
+
+while t<b-3*tstep:
+    currentL = currentN # saves the current lowest value
+    diff = abs(xyList1[count][1]) - abs(xyList1[count-1][1])
+    if abs(xyList1[count+1][1]) < abs(xyList1[count][1]): # if the next is less than the current
+        currentN = (xyList1[count+1][0], xyList1[count+1][1]) # set the current as the lowest
+
+    if currentN == currentL and diff<0:# if the saved and the new lowest are the same, and approaching Xaxis
+        flex.append((count-1, currentN[0], currentN[1])) # append value to extreme points (flex)
+    t += tstep #goes through the x values in the given range a to be in tstep steps
+    count +=1 #reffers to index placement
+
+#print(xyList0)
+print()
+#print(xyList1)
+print()
+#print(xyList2)
+print()
+
+print("extrema for function f(x) in range", a, "to", b, "equal", flex)
 print("absolute min value: ", ( min(f1)))
 print("absolute max value: ", ( max(f1)))
 
@@ -192,7 +219,7 @@ for x in fill:
     crit.append(x) 
 crit.append((count+2, xyList0[count+2][0], xyList0[count+2][1])) #places the end point as critical value
 
-# find concave up/down
+# find increasing/decreasing
 crease = [] 
 t=0
 while t<len(crit)-1: #while t is less then the length of the list of critical values list 
