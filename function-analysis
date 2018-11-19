@@ -31,28 +31,7 @@ for x in range (a,b+1):
    p = round(((fh-f1[x])/h), 5) #rounds fprime
    fprime.append(p)             # calculates the derivitive using the definition of a derivitive and puts in fprime
    
-################ EXTREMA
-"""
-for ppp in fprime:
-    pos = fprime.index(ppp)         # position of ppp in fprime
-    if ppp>= -0.05 and ppp<=0.05:
-        x = rangee[pos]
-        crit.append(x)
-crit.append(b)          #adds b to critical values
 
-for cc in crit:                 # add exceptions of x^3
-    judy = crit.index(cc)
-    x = cc
-    jg = eval(f)
-    x = judy+1
-    jjg = eval(f)
-    if jg>jjg and judy<len(crit):
-        print("local max @", cc , "," , jg)
-    elif jg<jjg and judy<len(crit):
-        print("local min @", cc, "," , jg)
-    else:
-        print("nein")
-"""
 ##############_finding f"
 
 f2 = []                         # f(x+2h)-f(x+h)/h or f'(x+h)
